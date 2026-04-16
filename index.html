@@ -926,5 +926,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 </script>
+    <script>
+// Запрос разрешения на уведомления
+function askNotificationPermission() {
+    if ('Notification' in window) {
+        Notification.requestPermission().then(function(permission) {
+            if (permission === 'granted') {
+                console.log('✅ Уведомления разрешены');
+            }
+        });
+    }
+}
+
+// Автоматически запросить разрешение через 2 секунды
+setTimeout(askNotificationPermission, 2000);
+</script>
 </body>
 </html>
